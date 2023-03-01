@@ -1,14 +1,29 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue';
+import { useMenuStore } from '../store';
+
 defineProps<{
   idx: number;
   name: string;
 }>();
+
+const menuStore = useMenuStore();
+const currentMenu = ref(menuStore.currentMenu);
+
+watch(
+  () => menuStore.currentMenu,
+  (menu) => (currentMenu.value = menu)
+);
 </script>
 
 <template>
-  <div class="flex items-center mb-6 cursor-pointer">
+  <div
+    @click="() => menuStore.setMenu(idx)"
+    class="flex items-center mb-6 cursor-pointer"
+  >
     <div
-      class="w-10 h-10 flex items-center justify-center text-white border border-white rounded-full"
+      class="w-10 h-10 flex items-center justify-center transition-all text-white border border-white rounded-full"
+      :class="currentMenu === idx ? 'bg-light-blue text-black' : ''"
     >
       {{ idx }}
     </div>
