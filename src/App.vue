@@ -1,7 +1,18 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+import Container from './components/Container.vue';
+import Sidebar from './components/Sidebar.vue';
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <div class="min-h-screen flex justify-center items-center">
+    <div
+      class="bg-gray-300 h-[550px] w-full max-w-4xl rounded-xl p-4 flex gap-4"
+    >
+      <Sidebar />
+      <Container
+        title="Personal Info"
+        desc="Please provide your name, email address and phone number."
+      />
+    </div>
+  </div>
 </template>
