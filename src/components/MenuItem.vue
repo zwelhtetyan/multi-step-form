@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex items-center mb-6">
+  <div class="flex items-center mb-6 cursor-pointer">
     <div
       class="w-10 h-10 flex items-center justify-center text-white border border-white rounded-full"
     >
