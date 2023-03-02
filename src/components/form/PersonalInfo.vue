@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import Header from './Header.vue';
-import Footer from '../Footer.vue';
 import { reactive, ref } from 'vue';
+import Header from './Header.vue';
+import Footer from './Footer.vue';
 import FormLabel from './FormLabel.vue';
 import { handleValidate } from '../../utils/handleValidate';
+import { useStepOneStore } from '../../store';
+import { storeToRefs } from 'pinia';
 
 const title = 'Personal Info';
 const desc = 'Please provide you name, email address and phone number.';
 
-const name = ref('');
-const email = ref('');
-const phoneNumber = ref('');
+const stepOneStore = useStepOneStore();
+const { name, email, phoneNumber } = storeToRefs(stepOneStore);
 
 const errorState = reactive({
   name: '',

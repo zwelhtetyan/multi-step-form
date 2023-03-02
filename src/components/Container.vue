@@ -8,7 +8,7 @@ const { currentMenuIdx } = storeToRefs(menuStore);
 </script>
 
 <template>
-  <div class="flex-1 flex justify-center items-center max-w-[420px] mx-auto">
+  <div class="flex-1 flex justify-center items-center max-w-[430px] mx-auto">
     <div class="w-full">
       <PersonalInfo v-if="currentMenuIdx === 1" />
       <SelectPlan v-else-if="currentMenuIdx === 2" />

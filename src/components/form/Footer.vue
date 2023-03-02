@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { useMenuStore } from '../store';
+import { useMenuStore } from '../../store';
 import { toRefs } from 'vue';
 
 const props = defineProps<{
