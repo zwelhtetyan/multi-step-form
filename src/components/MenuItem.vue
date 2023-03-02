@@ -22,8 +22,8 @@ watch(
     class="flex items-center mb-6 cursor-pointer"
   >
     <div
-      class="w-10 h-10 flex items-center justify-center transition-all text-white border border-white rounded-full"
-      :class="currentMenu === idx ? 'bg-light-blue text-black' : ''"
+      class="w-10 h-10 flex items-center justify-center transition-all border border-white rounded-full"
+      :class="currentMenu === idx ? 'bg-light-blue text-black' : 'text-white'"
     >
       {{ idx }}
     </div>
