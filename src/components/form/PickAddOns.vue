@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Header from './header/index.vue';
-import Footer from './footer/index.vue';
+import Header from './Header.vue';
+import Footer from '../Footer.vue';
 const title = 'Pick Add-ons';
 const desc = 'Add-ons help enhance your gaming experience..';
 </script>

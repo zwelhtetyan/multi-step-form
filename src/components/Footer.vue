@@ -1,18 +1,30 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { useMenuStore } from '../../../store';
+import { useMenuStore } from '../store';
+import { toRefs } from 'vue';
 
-defineProps<{
+const props = defineProps<{
   class?: string;
+  cb?: () => boolean;
 }>();
 
 const menuStore = useMenuStore();
 const { menus, currentMenuIdx } = storeToRefs(menuStore);
+const { cb } = toRefs(props);
 
 const lastItem = menus.value.length === currentMenuIdx.value;
 
-const handleNextStep = () => menuStore.setMenu(currentMenuIdx.value + 1);
+const handleNextStep = () => {
+  if (cb?.value) {
+    const isValidForm = cb.value();
+    isValidForm && menuStore.setMenu(currentMenuIdx.value + 1);
+  } else {
+    menuStore.setMenu(currentMenuIdx.value + 1);
+  }
+};
+
 const handlePrevious = () => menuStore.setMenu(currentMenuIdx.value - 1);
+
 const handleConfirm = () => console.log('thank you!');
 </script>
 

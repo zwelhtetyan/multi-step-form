@@ -1,41 +1,70 @@
 <script setup lang="ts">
-import Header from './header/index.vue';
-import Footer from './footer/index.vue';
+import Header from './Header.vue';
+import Footer from '../Footer.vue';
+import { reactive, ref } from 'vue';
+import FormLabel from './FormLabel.vue';
+import { handleValidate } from '../../utils/handleValidate';
+
 const title = 'Personal Info';
 const desc = 'Please provide you name, email address and phone number.';
+
+const name = ref('');
+const email = ref('');
+const phoneNumber = ref('');
+
+const errorState = reactive({
+  name: '',
+  email: '',
+  phoneNumber: '',
+});
 </script>
 
 <template>
-  <div>
-    <Header :title="title" :desc="desc" class="mb-10" />
+  <Header :title="title" :desc="desc" class="mb-10" />
 
-    <div class="mb-5">
-      <label for="name" class="block mb-1">Name</label>
-      <input
-        type="text"
-        placeholder="e.g.Stephen King"
-        class="rounded-md h-10 w-full px-4 transition-all border border-light-gray outline-none focus-visible:border-purplish-blue"
-      />
-    </div>
-
-    <div class="mb-5">
-      <label for="name" class="block mb-1">Email Address</label>
-      <input
-        type="text"
-        placeholder="e.g.stephenking@lorem.com"
-        class="rounded-md h-10 w-full px-4 transition-all border border-light-gray outline-none focus-visible:border-purplish-blue"
-      />
-    </div>
-
-    <div class="mb-5">
-      <label for="name" class="block mb-1">Phone Number</label>
-      <input
-        type="number"
-        placeholder="e.g.+1 234 567 890"
-        class="rounded-md h-10 w-full px-4 transition-all border border-light-gray outline-none focus-visible:border-purplish-blue"
-      />
-    </div>
-
-    <Footer class="mt-20" />
+  <div class="mb-5">
+    <FormLabel label="Name" :htmlFor="name" :errorMessage="errorState.name" />
+    <input
+      v-model="name"
+      id="name"
+      type="text"
+      placeholder="e.g.Stephen King"
+      class="primary-input"
+    />
   </div>
+
+  <div class="mb-5">
+    <FormLabel
+      label="Email Address"
+      htmlFor="email"
+      :errorMessage="errorState.email"
+    />
+    <input
+      v-model="email"
+      id="email"
+      type="text"
+      placeholder="e.g.stephenking@lorem.com"
+      class="primary-input"
+    />
+  </div>
+
+  <div class="mb-5">
+    <FormLabel
+      label="Phone Number"
+      htmlFor="phone"
+      :errorMessage="errorState.phoneNumber"
+    />
+    <input
+      v-model="phoneNumber"
+      id="phone"
+      type="number"
+      placeholder="e.g.+1 234 567 890"
+      class="primary-input"
+    />
+  </div>
+
+  <Footer
+    class="mt-20"
+    :cb="() => handleValidate(name, email, phoneNumber, errorState)"
+  />
 </template>

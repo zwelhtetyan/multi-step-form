@@ -20,3 +20,13 @@
     -moz-appearance: textfield;
   }
 }
+
+@layer components {
+  .primary-input {
+    @apply rounded-md h-10 w-full px-4 transition-all border border-light-gray outline-none focus-visible:border-purplish-blue;
+  }
+
+  .plan-card {
+    @apply rounded-lg border cursor-pointer border-light-gray hover:border-purplish-blue transition-all;
+  }
+}
