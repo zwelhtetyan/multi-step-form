@@ -8,18 +8,25 @@ defineProps<{
 
 const menuStore = useMenuStore();
 const { menus, currentMenuIdx } = storeToRefs(menuStore);
+
 const lastItem = menus.value.length === currentMenuIdx.value;
+
+const handleNextStep = () => menuStore.setMenu(currentMenuIdx.value + 1);
+const handlePrevious = () => menuStore.setMenu(currentMenuIdx.value - 1);
+const handleConfirm = () => console.log('thank you!');
 </script>
 
 <template>
   <footer class="w-full flex justify-between items-center" :class="class">
     <button
+      @click="handlePrevious"
       class="capitalize text-cool-gray hover:text-black transition-all"
       v-if="currentMenuIdx !== 1"
     >
       bo back
     </button>
     <button
+      @click="() => (lastItem ? handleConfirm() : handleNextStep())"
       class="capitalize ml-auto p-2 px-4 text-white rounded-lg transition-all"
       :class="
         lastItem
