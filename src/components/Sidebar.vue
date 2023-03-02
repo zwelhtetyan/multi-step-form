@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useMenuStore } from '../store';
 import MenuItem from './MenuItem.vue';
 
-const menus = ['your info', 'select plan', 'add-ons', 'summary'];
+const menuStore = useMenuStore();
+const { menus } = storeToRefs(menuStore);
 </script>
 
 <template>

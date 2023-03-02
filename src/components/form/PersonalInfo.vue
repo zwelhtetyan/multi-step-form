@@ -36,6 +36,6 @@ const desc = 'Please provide you name, email address and phone number.';
       />
     </div>
 
-    <Footer class="mt-20" first />
+    <Footer class="mt-20" />
   </div>
 </template>

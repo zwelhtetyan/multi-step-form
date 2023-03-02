@@ -4,14 +4,14 @@ import { useMenuStore } from '../store';
 import { PersonalInfo, SelectPlan, PickAddOns, FinishingUp } from './form';
 
 const menuStore = useMenuStore();
-const { currentMenu } = storeToRefs(menuStore);
+const { currentMenuIdx } = storeToRefs(menuStore);
 </script>
 
 <template>
   <div class="flex-1 flex justify-center items-center">
-    <PersonalInfo v-if="currentMenu === 1" />
-    <SelectPlan v-else-if="currentMenu === 2" />
-    <PickAddOns v-else-if="currentMenu === 3" />
-    <FinishingUp v-else-if="currentMenu === 4" />
+    <PersonalInfo v-if="currentMenuIdx === 1" />
+    <SelectPlan v-else-if="currentMenuIdx === 2" />
+    <PickAddOns v-else-if="currentMenuIdx === 3" />
+    <FinishingUp v-else-if="currentMenuIdx === 4" />
   </div>
 </template>

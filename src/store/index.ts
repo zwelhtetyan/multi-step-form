@@ -2,11 +2,12 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const useMenuStore = defineStore('menu', () => {
-  const currentMenu = ref(1);
+  const menus = ref(['your info', 'select plan', 'add-ons', 'summary']);
+  const currentMenuIdx = ref(1);
 
   const setMenu = (menuIdx: number) => {
-    currentMenu.value = menuIdx;
+    currentMenuIdx.value = menuIdx;
   };
 
-  return { currentMenu, setMenu };
+  return { menus, currentMenuIdx, setMenu };
 });

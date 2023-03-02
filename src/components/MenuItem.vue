@@ -8,11 +8,11 @@ defineProps<{
 }>();
 
 const menuStore = useMenuStore();
-const currentMenu = ref(menuStore.currentMenu);
+const currentMenuIdx = ref(menuStore.currentMenuIdx);
 
 watch(
-  () => menuStore.currentMenu,
-  (menu) => (currentMenu.value = menu)
+  () => menuStore.currentMenuIdx,
+  (menu) => (currentMenuIdx.value = menu)
 );
 </script>
 
@@ -23,7 +23,9 @@ watch(
   >
     <div
       class="w-10 h-10 flex items-center justify-center transition-all border border-white rounded-full"
-      :class="currentMenu === idx ? 'bg-light-blue text-black' : 'text-white'"
+      :class="
+        currentMenuIdx === idx ? 'bg-light-blue text-black' : 'text-white'
+      "
     >
       {{ idx }}
     </div>
