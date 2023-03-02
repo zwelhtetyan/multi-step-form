@@ -10,7 +10,7 @@ const title = 'Select your plan';
 const desc = 'You have the option of monthly or yearly billing.';
 
 const planStore = usePlanStore();
-const { pricingType } = storeToRefs(planStore);
+const { pricingType, selectedPlan } = storeToRefs(planStore);
 
 const pricingObj = {
   monthly: '',
@@ -30,6 +30,8 @@ type ObjectKey = keyof typeof pricingObj;
     <PlanCard
       v-for="plan in allPlans"
       :title="plan.title"
+      :handleSelectPlan="() => planStore.handleSelectPlan(plan.title)"
+      :selected="selectedPlan.toLowerCase() === plan.title.toLocaleLowerCase()"
       :pricing="plan.pricing[pricingType as ObjectKey]"
       :logo="plan.logo"
       :planType="pricingType"
@@ -37,12 +39,18 @@ type ObjectKey = keyof typeof pricingObj;
     />
   </div>
 
-  <div class="flex items-center justify-center gap-2 mt-12">
-    <p>Monthly</p>
-    <button @click="planStore.handleChangePlan" class="bg-orange-300">
-      click
+  <div class="flex items-center justify-center gap-4 mt-12 text-sm">
+    <p :class="pricingType !== 'monthly' && 'text-cool-gray'">Monthly</p>
+
+    <button
+      @click="planStore.handleChangePlan"
+      class="w-10 h-5 bg-marine-blue p-1 rounded-full flex items-center"
+      :class="pricingType === 'monthly' ? 'justify-start' : 'justify-end'"
+    >
+      <div class="w-3 h-3 rounded-full bg-white"></div>
     </button>
-    <p>yearly</p>
+
+    <p :class="pricingType !== 'yearly' && 'text-cool-gray'">Yearly</p>
   </div>
 
   <Footer class="mt-20" />

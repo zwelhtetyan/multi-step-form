@@ -4,16 +4,24 @@ defineProps<{
   pricing: string;
   planType: string;
   logo: string;
+  selected: boolean;
+  handleSelectPlan: () => void;
 }>();
 </script>
 
 <template>
-  <div class="plan-card p-4 flex flex-col justify-center items-start">
+  <div
+    @click="handleSelectPlan"
+    class="plan-card p-4 flex flex-col justify-center items-start"
+    :class="selected && 'border-purplish-blue'"
+  >
     <img :src="logo" alt="logo" />
     <div class="mt-auto">
       <h1 class="font-bold">{{ title }}</h1>
       <p class="text-sm text-cool-gray">{{ pricing }}</p>
-      <p v-if="planType === 'yearly'" class="text-sm mt-1">2 months free</p>
+      <p v-if="planType === 'yearly'" class="text-sm mt-1 font-thin">
+        2 months free
+      </p>
     </div>
   </div>
 </template>
