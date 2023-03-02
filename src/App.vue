@@ -6,13 +6,10 @@ import Sidebar from './components/Sidebar.vue';
 <template>
   <div class="min-h-screen flex justify-center items-center">
     <div
-      class="bg-white border border-black h-[550px] w-full max-w-4xl rounded-xl p-4 flex gap-4"
+      class="bg-white border border-black h-[550px] w-full max-w-4xl rounded-xl p-3 flex gap-3"
     >
       <Sidebar />
-      <Container
-        title="Personal Info"
-        desc="Please provide your name, email address and phone number."
-      />
+      <Container />
     </div>
   </div>
 </template>

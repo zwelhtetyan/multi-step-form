@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Header from './header/index.vue';
 const title = 'Finishing up';
-const desc = 'Double-check everything looks OK before confirming';
+const desc = 'Double-check everything looks OK before confirming.';
 </script>
 
 <template>

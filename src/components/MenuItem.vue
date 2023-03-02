@@ -29,7 +29,9 @@ watch(
     </div>
     <div class="flex-1 pl-4 uppercase">
       <p class="text-pastel-blue font-thin text-sm leading-5">Step {{ idx }}</p>
-      <h1 class="text-white font-bold tracking-wide">{{ name }}</h1>
+      <h1 class="text-white font-bold tracking-wide hover:text-light-gray">
+        {{ name }}
+      </h1>
     </div>
   </div>
 </template>
