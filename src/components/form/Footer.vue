@@ -6,6 +6,7 @@ import { toRefs } from 'vue';
 const props = defineProps<{
   class?: string;
   cb?: () => boolean;
+  handleConfirm?: () => void;
 }>();
 
 const menuStore = useMenuStore();
@@ -24,8 +25,6 @@ const handleNextStep = () => {
 };
 
 const handlePrevious = () => menuStore.setMenu(currentMenuIdx.value - 1);
-
-const handleConfirm = () => console.log('thank you!');
 </script>
 
 <template>
@@ -41,7 +40,7 @@ const handleConfirm = () => console.log('thank you!');
       bo back
     </button>
     <button
-      @click="() => (lastItem ? handleConfirm() : handleNextStep())"
+      @click="() => (lastItem ? handleConfirm!() : handleNextStep())"
       class="capitalize ml-auto h-10 p-2 px-4 text-white rounded-lg transition-all select-none"
       :class="
         lastItem

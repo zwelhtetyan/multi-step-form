@@ -12,9 +12,9 @@ const { currentMenuIdx } = storeToRefs(menuStore);
 </script>
 
 <template>
-  <div class="flex items-center mb-6">
+  <div class="flex items-center mb-6 text-sm">
     <div
-      class="w-10 h-10 flex items-center justify-center font-bold transition-all border rounded-full"
+      class="w-9 h-9 flex items-center justify-center font-bold transition-all border rounded-full"
       :class="
         currentMenuIdx === idx
           ? 'bg-light-blue text-black border-light-blue'
