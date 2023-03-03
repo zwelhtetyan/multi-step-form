@@ -29,7 +29,10 @@ const handleConfirm = () => console.log('thank you!');
 </script>
 
 <template>
-  <footer class="w-full flex justify-between items-center" :class="class">
+  <footer
+    class="w-full flex justify-between items-center text-sm"
+    :class="class"
+  >
     <button
       @click="handlePrevious"
       class="capitalize text-cool-gray hover:text-black transition-all"
@@ -39,7 +42,7 @@ const handleConfirm = () => console.log('thank you!');
     </button>
     <button
       @click="() => (lastItem ? handleConfirm() : handleNextStep())"
-      class="capitalize ml-auto p-2 px-4 text-white rounded-lg transition-all"
+      class="capitalize ml-auto p-3 px-4 text-white rounded-lg transition-all"
       :class="
         lastItem
           ? 'bg-purplish-blue hover:bg-purplish-blue/80'

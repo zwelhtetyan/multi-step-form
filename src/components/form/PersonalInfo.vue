@@ -65,7 +65,7 @@ const errorState = reactive({
   </div>
 
   <Footer
-    class="mt-20"
+    class="mt-16"
     :cb="() => handleValidate(name, email, phoneNumber, errorState)"
   />
 </template>

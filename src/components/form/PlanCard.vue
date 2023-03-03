@@ -12,7 +12,7 @@ defineProps<{
 <template>
   <div
     @click="handleSelectPlan"
-    class="plan-card p-4 flex flex-col justify-center items-start"
+    class="plan-card p-4 flex flex-col justify-center items-start select-none"
     :class="selected && 'border-purplish-blue'"
   >
     <img :src="logo" alt="logo" />

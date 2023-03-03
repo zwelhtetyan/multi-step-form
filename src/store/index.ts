@@ -37,3 +37,26 @@ export const usePlanStore = defineStore('step-2', () => {
 
   return { pricingType, selectedPlan, handleChangePlan, handleSelectPlan };
 });
+
+export const useAddOnsStore = defineStore('step-3', () => {
+  const allSelectedAddOns = ref<string[]>([]);
+
+  const selectAddOns = (newTitle: string) => {
+    const title = newTitle.toLowerCase();
+    const alreadySelectedIdx = allSelectedAddOns.value.indexOf(title);
+
+    if (alreadySelectedIdx < 0) {
+      allSelectedAddOns.value.push(title);
+    } else {
+      allSelectedAddOns.value.splice(alreadySelectedIdx, 1);
+    }
+  };
+
+  const isSelected = (title: string) => {
+    return allSelectedAddOns.value.some(
+      (t) => t.toLowerCase() === title.toLowerCase()
+    );
+  };
+
+  return { isSelected, selectAddOns };
+});
