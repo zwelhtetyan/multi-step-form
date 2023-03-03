@@ -42,7 +42,7 @@ const handleConfirm = () => console.log('thank you!');
     </button>
     <button
       @click="() => (lastItem ? handleConfirm() : handleNextStep())"
-      class="capitalize ml-auto p-3 px-4 text-white rounded-lg transition-all"
+      class="capitalize ml-auto h-10 p-2 px-4 text-white rounded-lg transition-all"
       :class="
         lastItem
           ? 'bg-purplish-blue hover:bg-purplish-blue/80'
