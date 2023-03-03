@@ -58,6 +58,7 @@ export const useAddOnsStore = defineStore('step-3', () => {
 
   const selectAddOns = (newTitle: string, price: number) => {
     const title = newTitle.toLowerCase();
+
     const alreadySelectedItem = allSelectedAddOns.value.find(
       (item) => item.title === title
     );

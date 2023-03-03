@@ -31,6 +31,7 @@ const errorState = reactive({
       type="text"
       placeholder="e.g.Stephen King"
       class="primary-input"
+      :class="errorState.name && 'border-strawberry-red'"
     />
   </div>
 
@@ -46,6 +47,7 @@ const errorState = reactive({
       type="text"
       placeholder="e.g.stephenking@lorem.com"
       class="primary-input"
+      :class="errorState.email && 'border-strawberry-red'"
     />
   </div>
 
@@ -61,6 +63,7 @@ const errorState = reactive({
       type="number"
       placeholder="e.g.+1 234 567 890"
       class="primary-input"
+      :class="errorState.phoneNumber && 'border-strawberry-red'"
     />
   </div>
 

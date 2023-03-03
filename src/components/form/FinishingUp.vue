@@ -4,7 +4,7 @@ import Footer from './Footer.vue';
 import AddOnsItem from './AddOnsItem.vue';
 import { useAddOnsStore, usePlanStore } from '../../store';
 import { storeToRefs } from 'pinia';
-import { watchEffect } from 'vue';
+import { computed, watchEffect } from 'vue';
 import allAddOns from '../../constants/AddOns';
 import { PricingObjKey } from '../../types';
 
@@ -30,58 +30,58 @@ watchEffect(() => {
   }));
 });
 
-const totalItemPrice = allSelectedAddOns.value.reduce((a, b) => a + b.price, 0);
-const TOTAL = selectedPlan.value.price + totalItemPrice;
+const TOTAL = computed(() => {
+  const totalItemPrice = allSelectedAddOns.value.reduce(
+    (a, b) => a + b.price,
+    0
+  );
+
+  return selectedPlan.value.price + totalItemPrice;
+});
 </script>
 
 <template>
-  <div>
-    <Header :title="title" :desc="desc" class="mb-10" />
+  <Header :title="title" :desc="desc" class="mb-10" />
 
-    <div class="bg-magnolia rounded-lg p-5">
-      <div
-        class="flex items-center justify-between font-semibold text-lg text-marine-blue"
-      >
-        <div>
-          <h1 class="capitalize">
-            {{ selectedPlan.title }} ({{ pricingType }})
-          </h1>
-          <p
-            @click="planStore.handleChangePlan"
-            class="text-sm text-cool-gray underline cursor-pointer hover:text-purplish-blue transition-all select-none"
-          >
-            Change
-          </p>
-        </div>
-        <h1>
-          ${{ selectedPlan.price }}/{{
-            pricingType === 'monthly' ? 'mo' : 'yr'
-          }}
-        </h1>
+  <div class="bg-magnolia rounded-lg p-5">
+    <div
+      class="flex items-center justify-between font-semibold text-lg text-marine-blue"
+    >
+      <div>
+        <h1 class="capitalize">{{ selectedPlan.title }} ({{ pricingType }})</h1>
+        <p
+          @click="planStore.handleChangePlan"
+          class="text-sm text-cool-gray underline cursor-pointer hover:text-purplish-blue transition-all select-none"
+        >
+          Change
+        </p>
       </div>
-
-      <div
-        v-if="allSelectedAddOns.length > 0"
-        class="mt-6 pt-2 text-cool-gray text-sm border-t border-t-light-gray"
-      >
-        <AddOnsItem
-          v-for="{ title, price } in allSelectedAddOns"
-          :title="title"
-          :price="price"
-          :pricingType="pricingType"
-        />
-      </div>
-    </div>
-
-    <div class="flex items-center justify-between px-5 pt-4 font-bold">
-      <p class="text-cool-gray text-sm">
-        Total ({{ pricingType === 'monthly' ? 'per month' : 'per year' }})
-      </p>
-      <h1 class="text-lg text-purplish-blue">
-        +${{ TOTAL }}/{{ pricingType === 'monthly' ? 'mo' : 'yr' }}
+      <h1>
+        ${{ selectedPlan.price }}/{{ pricingType === 'monthly' ? 'mo' : 'yr' }}
       </h1>
     </div>
 
-    <Footer class="mt-14" />
+    <div
+      v-if="allSelectedAddOns.length > 0"
+      class="mt-6 pt-2 text-cool-gray text-sm border-t border-t-light-gray"
+    >
+      <AddOnsItem
+        v-for="{ title, price } in allSelectedAddOns"
+        :title="title"
+        :price="price"
+        :pricingType="pricingType"
+      />
+    </div>
   </div>
+
+  <div class="flex items-center justify-between px-5 pt-4 font-bold">
+    <p class="text-cool-gray text-sm">
+      Total ({{ pricingType === 'monthly' ? 'per month' : 'per year' }})
+    </p>
+    <h1 class="text-lg text-purplish-blue">
+      +${{ TOTAL }}/{{ pricingType === 'monthly' ? 'mo' : 'yr' }}
+    </h1>
+  </div>
+
+  <Footer class="mt-14" />
 </template>

@@ -35,14 +35,14 @@ const handleConfirm = () => console.log('thank you!');
   >
     <button
       @click="handlePrevious"
-      class="capitalize text-cool-gray hover:text-black transition-all"
+      class="capitalize text-cool-gray hover:text-black transition-all select-none"
       v-if="currentMenuIdx !== 1"
     >
       bo back
     </button>
     <button
       @click="() => (lastItem ? handleConfirm() : handleNextStep())"
-      class="capitalize ml-auto h-10 p-2 px-4 text-white rounded-lg transition-all"
+      class="capitalize ml-auto h-10 p-2 px-4 text-white rounded-lg transition-all select-none"
       :class="
         lastItem
           ? 'bg-purplish-blue hover:bg-purplish-blue/80'
