@@ -22,14 +22,17 @@ export const useStepOneStore = defineStore('step-1', () => {
 
 export const usePlanStore = defineStore('step-2', () => {
   const pricingType = ref('monthly');
-  const selectedPlan = ref('arcade');
+  const selectedPlan = ref({
+    title: 'arcade',
+    price: 9,
+  });
 
   const handleChangePlan = () => {
     pricingType.value = pricingType.value === 'monthly' ? 'yearly' : 'monthly';
   };
 
-  const handleSelectPlan = (newPlan: string) => {
-    selectedPlan.value = newPlan;
+  const handleSelectPlan = (title: string, price: number) => {
+    selectedPlan.value = { title, price };
   };
 
   return { pricingType, selectedPlan, handleChangePlan, handleSelectPlan };

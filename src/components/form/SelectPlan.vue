@@ -30,8 +30,10 @@ type ObjectKey = keyof typeof pricingObj;
     <PlanCard
       v-for="plan in allPlans"
       :title="plan.title"
-      :handleSelectPlan="() => planStore.handleSelectPlan(plan.title)"
-      :selected="selectedPlan.toLowerCase() === plan.title.toLocaleLowerCase()"
+      :handleSelectPlan="() => planStore.handleSelectPlan(plan.title, plan.pricing[pricingType as ObjectKey] )"
+      :selected="
+        selectedPlan.title.toLowerCase() === plan.title.toLocaleLowerCase()
+      "
       :pricing="plan.pricing[pricingType as ObjectKey]"
       :logo="plan.logo"
       :planType="pricingType"
@@ -39,8 +41,10 @@ type ObjectKey = keyof typeof pricingObj;
     />
   </div>
 
-  <div class="flex items-center justify-center gap-4 mt-12 text-sm">
-    <p :class="pricingType !== 'monthly' && 'text-cool-gray'">Monthly</p>
+  <div class="flex items-center justify-center gap-4 mt-12 text-xs font-bold">
+    <p :class="pricingType !== 'monthly' && 'text-cool-gray font-normal'">
+      Monthly
+    </p>
 
     <button
       @click="planStore.handleChangePlan"
@@ -50,7 +54,9 @@ type ObjectKey = keyof typeof pricingObj;
       <div class="w-3 h-3 rounded-full bg-white"></div>
     </button>
 
-    <p :class="pricingType !== 'yearly' && 'text-cool-gray'">Yearly</p>
+    <p :class="pricingType !== 'yearly' && 'text-cool-gray font-normal'">
+      Yearly
+    </p>
   </div>
 
   <Footer class="mt-20" />

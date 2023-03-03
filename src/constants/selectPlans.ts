@@ -6,24 +6,24 @@ export default [
   {
     title: 'Arcade',
     pricing: {
-      monthly: '$9/mo',
-      yearly: '$90/yr',
+      monthly: 9,
+      yearly: 90,
     },
     logo: arcade,
   },
   {
     title: 'Advanced',
     pricing: {
-      monthly: '$12/mo',
-      yearly: '$120/yr',
+      monthly: 12,
+      yearly: 120,
     },
     logo: advanced,
   },
   {
     title: 'Pro',
     pricing: {
-      monthly: '$15/mo',
-      yearly: '$150/yr',
+      monthly: 15,
+      yearly: 150,
     },
     logo: pro,
   },

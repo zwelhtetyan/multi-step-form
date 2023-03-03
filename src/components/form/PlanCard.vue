@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   title: string;
-  pricing: string;
+  pricing: number;
   planType: string;
   logo: string;
   selected: boolean;
@@ -18,7 +18,9 @@ defineProps<{
     <img :src="logo" alt="logo" />
     <div class="mt-auto">
       <h1 class="font-bold">{{ title }}</h1>
-      <p class="text-sm text-cool-gray">{{ pricing }}</p>
+      <p class="text-sm text-cool-gray">
+        ${{ pricing }}/{{ planType === 'monthly' ? 'mo' : 'yr' }}
+      </p>
       <p v-if="planType === 'yearly'" class="text-sm mt-1 font-thin">
         2 months free
       </p>
