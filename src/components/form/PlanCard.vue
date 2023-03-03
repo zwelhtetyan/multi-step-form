@@ -13,11 +13,11 @@ defineProps<{
   <div
     @click="handleSelectPlan"
     class="plan-card p-4 flex flex-col justify-center items-start select-none"
-    :class="selected && 'border-purplish-blue'"
+    :class="selected && 'border-purplish-blue bg-magnolia'"
   >
     <img :src="logo" alt="logo" />
     <div class="mt-auto">
-      <h1 class="font-bold">{{ title }}</h1>
+      <h1 class="font-bold text-marine-blue">{{ title }}</h1>
       <p class="text-sm text-cool-gray">
         ${{ pricing }}/{{ planType === 'monthly' ? 'mo' : 'yr' }}
       </p>

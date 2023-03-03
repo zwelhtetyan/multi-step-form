@@ -22,9 +22,11 @@ watch(
     class="flex items-center mb-6 cursor-pointer"
   >
     <div
-      class="w-10 h-10 flex items-center justify-center transition-all border border-white rounded-full"
+      class="w-10 h-10 flex items-center justify-center font-bold transition-all border rounded-full"
       :class="
-        currentMenuIdx === idx ? 'bg-light-blue text-black' : 'text-white'
+        currentMenuIdx === idx
+          ? 'bg-light-blue text-black border-light-blue'
+          : 'text-white border-white'
       "
     >
       {{ idx }}

@@ -12,7 +12,9 @@ defineProps<{
   <div
     @click="selectAddOns"
     class="h-20 p-5 mb-4 flex items-center justify-between rounded-lg border hover:border-purplish-blue transition-all cursor-pointer select-none"
-    :class="isSelected() ? 'border-purplish-blue' : 'border-light-gray'"
+    :class="
+      isSelected() ? 'border-purplish-blue bg-magnolia' : 'border-light-gray'
+    "
   >
     <div class="flex items-center">
       <div
@@ -30,7 +32,7 @@ defineProps<{
       </div>
 
       <div class="ml-5">
-        <h1 class="font-bold">{{ title }}</h1>
+        <h1 class="font-bold text-marine-blue">{{ title }}</h1>
         <p class="text-sm text-cool-gray">{{ desc }}</p>
       </div>
     </div>

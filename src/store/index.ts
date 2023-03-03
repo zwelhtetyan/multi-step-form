@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import allPlans from '../constants/selectPlans';
+import { PricingObjKey } from '../types';
 
 interface AddOns {
   title: string;
@@ -34,6 +36,14 @@ export const usePlanStore = defineStore('step-2', () => {
 
   const handleChangePlan = () => {
     pricingType.value = pricingType.value === 'monthly' ? 'yearly' : 'monthly';
+
+    const currentPlan = allPlans.find(
+      (plan) =>
+        plan.title.toLowerCase() === selectedPlan.value.title.toLowerCase()
+    );
+
+    selectedPlan.value.price =
+      currentPlan!.pricing[pricingType.value as PricingObjKey];
   };
 
   const handleSelectPlan = (title: string, price: number) => {
@@ -67,5 +77,5 @@ export const useAddOnsStore = defineStore('step-3', () => {
     );
   };
 
-  return { isSelected, selectAddOns };
+  return { allSelectedAddOns, isSelected, selectAddOns };
 });

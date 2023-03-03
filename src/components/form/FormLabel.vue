@@ -8,7 +8,9 @@ defineProps<{
 
 <template>
   <div class="flex justify-between items-center">
-    <label :for="htmlFor" class="block text-sm mb-1">{{ label }}</label>
+    <label :for="htmlFor" class="block text-sm mb-1 text-marine-blue">{{
+      label
+    }}</label>
     <p v-if="errorMessage" class="text-xs text-strawberry-red font-semibold">
       {{ errorMessage }}
     </p>
