@@ -22,7 +22,7 @@ const addOnsStore = useAddOnsStore();
       :desc="desc"
       :price="price"
       :isSelected="() => addOnsStore.isSelected(title)"
-      :selectAddOns="() => addOnsStore.selectAddOns(title)"
+      :selectAddOns="() => addOnsStore.selectAddOns(title, price)"
     />
 
     <Footer class="mt-12" />

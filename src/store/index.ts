@@ -1,6 +1,11 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
+interface AddOns {
+  title: string;
+  price: number;
+}
+
 export const useMenuStore = defineStore('menu', () => {
   const menus = ref(['your info', 'select plan', 'add-ons', 'summary']);
   const currentMenuIdx = ref(1);
@@ -39,22 +44,26 @@ export const usePlanStore = defineStore('step-2', () => {
 });
 
 export const useAddOnsStore = defineStore('step-3', () => {
-  const allSelectedAddOns = ref<string[]>([]);
+  const allSelectedAddOns = ref<AddOns[]>([]);
 
-  const selectAddOns = (newTitle: string) => {
+  const selectAddOns = (newTitle: string, price: number) => {
     const title = newTitle.toLowerCase();
-    const alreadySelectedIdx = allSelectedAddOns.value.indexOf(title);
+    const alreadySelectedItem = allSelectedAddOns.value.find(
+      (item) => item.title === title
+    );
 
-    if (alreadySelectedIdx < 0) {
-      allSelectedAddOns.value.push(title);
+    if (alreadySelectedItem) {
+      allSelectedAddOns.value = allSelectedAddOns.value.filter(
+        (item) => item.title !== alreadySelectedItem.title
+      );
     } else {
-      allSelectedAddOns.value.splice(alreadySelectedIdx, 1);
+      allSelectedAddOns.value.push({ title, price });
     }
   };
 
   const isSelected = (title: string) => {
     return allSelectedAddOns.value.some(
-      (t) => t.toLowerCase() === title.toLowerCase()
+      (t) => t.title.toLowerCase() === title.toLowerCase()
     );
   };
 
