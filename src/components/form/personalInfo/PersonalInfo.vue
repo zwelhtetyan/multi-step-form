@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import Header from './Header.vue';
-import Footer from './Footer.vue';
+import Header from '../Header.vue';
+import Footer from '../Footer.vue';
 import FormLabel from './FormLabel.vue';
-import { handleValidate } from '../../utils/handleValidate';
-import { useStepOneStore } from '../../store';
+import { handleValidate } from '../../../utils/handleValidate';
+import { useStepOneStore } from '../../../store';
 import { storeToRefs } from 'pinia';
 
 const title = 'Personal Info';

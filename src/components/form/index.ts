@@ -1,6 +1,6 @@
-import PersonalInfo from './PersonalInfo.vue';
-import SelectPlan from './SelectPlan.vue';
-import PickAddOns from './PickAddOns.vue';
-import FinishingUp from './FinishingUp.vue';
+import PersonalInfo from './personalInfo/PersonalInfo.vue';
+import SelectPlan from './selectPlan/SelectPlan.vue';
+import PickAddOns from './addOns/PickAddOns.vue';
+import FinishingUp from './summary/FinishingUp.vue';
 
 export { PersonalInfo, SelectPlan, PickAddOns, FinishingUp };

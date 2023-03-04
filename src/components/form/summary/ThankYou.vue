@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import thankYou from '../../assets/images/icon-thank-you.svg';
+import thankYou from '../../../assets/images/icon-thank-you.svg';
 </script>
 
 <template>

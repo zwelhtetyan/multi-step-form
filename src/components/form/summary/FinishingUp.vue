@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import Header from './Header.vue';
-import Footer from './Footer.vue';
+import Header from '../Header.vue';
+import Footer from '../Footer.vue';
 import AddOnsItem from './AddOnsItem.vue';
-import { useAddOnsStore, usePlanStore } from '../../store';
+import { useAddOnsStore, usePlanStore } from '../../../store';
 import { storeToRefs } from 'pinia';
 import { computed, ref, watchEffect } from 'vue';
-import allAddOns from '../../constants/AddOns';
-import { PricingObjKey } from '../../types';
+import allAddOns from '../../../constants/AddOns';
+import { PricingObjKey } from '../../../types';
 import ThankYou from './ThankYou.vue';
 
 const title = 'Finishing up';

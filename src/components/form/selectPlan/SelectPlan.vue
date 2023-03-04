@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Header from './Header.vue';
-import Footer from './Footer.vue';
-import allPlans from '../../constants/selectPlans';
+import Header from '../Header.vue';
+import Footer from '../Footer.vue';
+import allPlans from '../../../constants/selectPlans';
 import PlanCard from './PlanCard.vue';
-import { usePlanStore } from '../../store';
+import { usePlanStore } from '../../../store';
 import { storeToRefs } from 'pinia';
-import { PricingObjKey } from '../../types';
+import { PricingObjKey } from '../../../types';
 
 const title = 'Select your plan';
 const desc = 'You have the option of monthly or yearly billing.';

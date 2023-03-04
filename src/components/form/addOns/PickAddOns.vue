@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Header from './Header.vue';
-import Footer from './Footer.vue';
+import Header from '../Header.vue';
+import Footer from '../Footer.vue';
 import AddOnsCard from './AddOnsCard.vue';
-import AllAddOns from '../../constants/AddOns';
-import { useAddOnsStore, usePlanStore } from '../../store';
+import AllAddOns from '../../../constants/AddOns';
+import { useAddOnsStore, usePlanStore } from '../../../store';
 import { storeToRefs } from 'pinia';
-import { PricingObj } from '../../types';
+import { PricingObj } from '../../../types';
 
 const title = 'Pick Add-ons';
 const desc = 'Add-ons help enhance your gaming experience..';
