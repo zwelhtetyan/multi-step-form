@@ -28,7 +28,7 @@ const getPrice = (pricingType: string, pricingObj: PricingObj) => {
     <div class="mobile-ui-card">
       <Header :title="title" :desc="desc" class="mb-5 md:mb-10" />
 
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-3 xs:gap-4">
         <AddOnsCard
           v-for="{ title, desc, pricing } in AllAddOns"
           :key="title"

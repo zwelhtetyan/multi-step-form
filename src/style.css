@@ -31,6 +31,6 @@
   }
 
   .mobile-ui-card {
-    @apply bg-white p-4 py-6 rounded-xl -mt-24 md:bg-transparent md:p-0 md:rounded-none md:mt-0;
+    @apply bg-white w-full mx-auto max-w-lg p-4 py-6 rounded-xl -mt-20 xs:-mt-24 md:mt-0 md:bg-transparent md:p-0 md:rounded-none;
   }
 }

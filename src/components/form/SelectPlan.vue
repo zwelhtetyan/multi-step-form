@@ -20,7 +20,7 @@ const { pricingType, selectedPlan } = storeToRefs(planStore);
       <Header :title="title" :desc="desc" class="mb-5 md:mb-10" />
 
       <div
-        class="grid xs:grid-cols-3 gap-4 w-full"
+        class="grid xs:grid-cols-3 gap-3 xs:gap-4 w-full"
         :class="pricingType === 'monthly' ? 'xs:h-[155px]' : 'xs:h-[170px]'"
       >
         <PlanCard

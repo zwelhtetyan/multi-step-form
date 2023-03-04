@@ -32,7 +32,7 @@ export const handleValidate = (
   if (!_email) {
     errorState.email = requiredMsg;
   } else if (_email && !isValidEmail(_email)) {
-    errorState.email = 'Please provide a valid email';
+    errorState.email = 'invalid email';
   }
 
   if (!_phoneNumber) {
@@ -41,7 +41,7 @@ export const handleValidate = (
     _phoneNumber &&
     (_phoneNumber.length < 10 || _phoneNumber.length > 11)
   ) {
-    errorState.phoneNumber = 'Please provide a valid phone number';
+    errorState.phoneNumber = 'invalid phone number';
   }
 
   const isValid =

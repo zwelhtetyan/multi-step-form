@@ -62,7 +62,7 @@ const handleConfirm = () => (showThank.value = true);
               </h1>
               <p
                 @click="planStore.handleChangePlan"
-                class="text-sm text-cool-gray underline cursor-pointer hover:text-purplish-blue transition-all select-none"
+                class="text-sm inline-block text-cool-gray underline cursor-pointer hover:text-purplish-blue transition-all select-none"
               >
                 Change
               </p>

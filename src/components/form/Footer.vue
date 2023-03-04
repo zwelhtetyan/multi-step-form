@@ -37,7 +37,7 @@ const handlePrevious = () => menuStore.setMenu(currentMenuIdx.value - 1);
       class="capitalize text-cool-gray hover:text-black transition-all select-none"
       v-if="currentMenuIdx !== 1"
     >
-      bo back
+      go back
     </button>
     <button
       @click="() => (lastItem ? handleConfirm!() : handleNextStep())"
