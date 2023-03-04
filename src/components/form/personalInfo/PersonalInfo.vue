@@ -28,7 +28,7 @@ const errorState = reactive({
       <div class="mb-5">
         <FormLabel
           label="Name"
-          :htmlFor="name"
+          htmlFor="name"
           :errorMessage="errorState.name"
         />
         <input
