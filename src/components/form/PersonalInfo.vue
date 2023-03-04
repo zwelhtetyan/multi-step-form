@@ -21,54 +21,62 @@ const errorState = reactive({
 </script>
 
 <template>
-  <Header :title="title" :desc="desc" class="mb-10" />
+  <div class="flex-1">
+    <div class="mobile-ui-card">
+      <Header :title="title" :desc="desc" class="mb-5 md:mb-10" />
 
-  <div class="mb-5">
-    <FormLabel label="Name" :htmlFor="name" :errorMessage="errorState.name" />
-    <input
-      v-model="name"
-      id="name"
-      type="text"
-      placeholder="e.g.Stephen King"
-      class="primary-input"
-      :class="errorState.name && 'border-strawberry-red'"
-    />
-  </div>
+      <div class="mb-5">
+        <FormLabel
+          label="Name"
+          :htmlFor="name"
+          :errorMessage="errorState.name"
+        />
+        <input
+          v-model="name"
+          id="name"
+          type="text"
+          placeholder="e.g.Stephen King"
+          class="primary-input"
+          :class="errorState.name && 'border-strawberry-red'"
+        />
+      </div>
 
-  <div class="mb-5">
-    <FormLabel
-      label="Email Address"
-      htmlFor="email"
-      :errorMessage="errorState.email"
-    />
-    <input
-      v-model="email"
-      id="email"
-      type="text"
-      placeholder="e.g.stephenking@lorem.com"
-      class="primary-input"
-      :class="errorState.email && 'border-strawberry-red'"
-    />
-  </div>
+      <div class="mb-5">
+        <FormLabel
+          label="Email Address"
+          htmlFor="email"
+          :errorMessage="errorState.email"
+        />
+        <input
+          v-model="email"
+          id="email"
+          type="text"
+          placeholder="e.g.stephenking@lorem.com"
+          class="primary-input"
+          :class="errorState.email && 'border-strawberry-red'"
+        />
+      </div>
 
-  <div class="mb-5">
-    <FormLabel
-      label="Phone Number"
-      htmlFor="phone"
-      :errorMessage="errorState.phoneNumber"
-    />
-    <input
-      v-model="phoneNumber"
-      id="phone"
-      type="number"
-      placeholder="e.g.+1 234 567 890"
-      class="primary-input"
-      :class="errorState.phoneNumber && 'border-strawberry-red'"
-    />
+      <div class="mb-1">
+        <FormLabel
+          label="Phone Number"
+          htmlFor="phone"
+          :errorMessage="errorState.phoneNumber"
+        />
+        <input
+          v-model="phoneNumber"
+          id="phone"
+          type="number"
+          placeholder="e.g.+1 234 567 890"
+          class="primary-input"
+          :class="errorState.phoneNumber && 'border-strawberry-red'"
+        />
+      </div>
+    </div>
   </div>
 
   <Footer
-    class="mt-16"
+    class="mt-12 md:mt-14"
     :cb="() => handleValidate(name, email, phoneNumber, errorState)"
   />
 </template>

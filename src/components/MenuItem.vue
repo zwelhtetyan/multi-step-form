@@ -23,7 +23,7 @@ const { currentMenuIdx } = storeToRefs(menuStore);
     >
       {{ idx }}
     </div>
-    <div class="flex-1 pl-4 uppercase">
+    <div class="flex-1 pl-4 uppercase hidden md:block">
       <p class="text-pastel-blue font-thin text-sm leading-5">Step {{ idx }}</p>
       <h1 class="text-white font-bold tracking-wide">
         {{ name }}

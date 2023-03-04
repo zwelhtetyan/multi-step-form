@@ -9,7 +9,7 @@ const { menus } = storeToRefs(menuStore);
 
 <template>
   <div
-    class="w-[270px] rounded-xl bg-desktop-sidebar-bg bg-no-repeat bg-cover h-full p-6 pt-10"
+    class="flex items-start p-6 pt-10 gap-4 justify-center md:block w-full md:w-[270px] h-52 md:h-full md:rounded-xl bg-mobile-sidebar-bg md:bg-desktop-sidebar-bg bg-no-repeat bg-cover bg-center"
   >
     <MenuItem
       v-for="(menu, idx) in menus"

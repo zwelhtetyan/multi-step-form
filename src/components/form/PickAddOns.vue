@@ -24,21 +24,26 @@ const getPrice = (pricingType: string, pricingObj: PricingObj) => {
 </script>
 
 <template>
-  <div>
-    <Header :title="title" :desc="desc" class="mb-10" />
+  <div class="flex-1">
+    <div class="mobile-ui-card">
+      <Header :title="title" :desc="desc" class="mb-5 md:mb-10" />
 
-    <AddOnsCard
-      v-for="{ title, desc, pricing } in AllAddOns"
-      :key="title"
-      :title="title"
-      :desc="desc"
-      :price="getPrice(pricingType, pricing)"
-      :isSelected="() => addOnsStore.isSelected(title)"
-      :selectAddOns="
-        () => addOnsStore.selectAddOns(title, getPrice(pricingType, pricing))
-      "
-    />
-
-    <Footer class="mt-12" />
+      <div class="flex flex-col gap-4">
+        <AddOnsCard
+          v-for="{ title, desc, pricing } in AllAddOns"
+          :key="title"
+          :title="title"
+          :desc="desc"
+          :price="getPrice(pricingType, pricing)"
+          :isSelected="() => addOnsStore.isSelected(title)"
+          :selectAddOns="
+            () =>
+              addOnsStore.selectAddOns(title, getPrice(pricingType, pricing))
+          "
+        />
+      </div>
+    </div>
   </div>
+
+  <Footer class="mt-4 md:mt-12" />
 </template>

@@ -29,4 +29,8 @@
   .plan-card {
     @apply rounded-lg border cursor-pointer border-light-gray hover:border-purplish-blue transition-all;
   }
+
+  .mobile-ui-card {
+    @apply bg-white p-4 py-6 rounded-xl -mt-24 md:bg-transparent md:p-0 md:rounded-none md:mt-0;
+  }
 }

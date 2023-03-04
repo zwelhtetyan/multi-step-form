@@ -5,9 +5,14 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        xs: '480px',
+      },
+
       fontFamily: {
         sans: ['Ubuntu', ...defaultTheme.fontFamily.sans],
       },
+
       colors: {
         'marine-blue': 'hsl(213, 96%, 18%)',
         'purplish-blue': 'hsl(243, 100%, 62%)',
@@ -20,6 +25,7 @@ module.exports = {
         alabaster: 'hsl(231, 100%, 99%)',
         white: 'hsl(0, 0%, 100%)',
       },
+
       backgroundImage: {
         'desktop-sidebar-bg':
           "url('/src/assets/images/bg-sidebar-desktop.svg')",

@@ -15,45 +15,49 @@ const { pricingType, selectedPlan } = storeToRefs(planStore);
 </script>
 
 <template>
-  <Header :title="title" :desc="desc" class="mb-10" />
+  <div class="flex-1">
+    <div class="mobile-ui-card">
+      <Header :title="title" :desc="desc" class="mb-5 md:mb-10" />
 
-  <div
-    class="grid grid-cols-3 gap-4 w-full"
-    :class="pricingType === 'monthly' ? 'h-[155px]' : 'h-[170px]'"
-  >
-    <PlanCard
-      v-for="plan in allPlans"
-      :title="plan.title"
-      :handleSelectPlan="() => planStore.handleSelectPlan(plan.title, plan.pricing[pricingType as PricingObjKey] )"
-      :selected="
-        selectedPlan.title.toLowerCase() === plan.title.toLocaleLowerCase()
-      "
-      :pricing="plan.pricing[pricingType as PricingObjKey]"
-      :logo="plan.logo"
-      :planType="pricingType"
-      :key="plan.title"
-    />
+      <div
+        class="grid xs:grid-cols-3 gap-4 w-full"
+        :class="pricingType === 'monthly' ? 'xs:h-[155px]' : 'xs:h-[170px]'"
+      >
+        <PlanCard
+          v-for="plan in allPlans"
+          :title="plan.title"
+          :handleSelectPlan="() => planStore.handleSelectPlan(plan.title, plan.pricing[pricingType as PricingObjKey] )"
+          :selected="
+            selectedPlan.title.toLowerCase() === plan.title.toLocaleLowerCase()
+          "
+          :pricing="plan.pricing[pricingType as PricingObjKey]"
+          :logo="plan.logo"
+          :planType="pricingType"
+          :key="plan.title"
+        />
+      </div>
+
+      <div
+        class="flex items-center justify-center gap-4 mt-12 text-xs font-bold text-marine-blue"
+      >
+        <p :class="pricingType !== 'monthly' && 'text-cool-gray font-normal'">
+          Monthly
+        </p>
+
+        <button
+          @click="planStore.handleChangePlan"
+          class="w-10 h-5 bg-marine-blue p-1 rounded-full flex items-center"
+          :class="pricingType === 'monthly' ? 'justify-start' : 'justify-end'"
+        >
+          <div class="w-3 h-3 rounded-full bg-white"></div>
+        </button>
+
+        <p :class="pricingType !== 'yearly' && 'text-cool-gray font-normal'">
+          Yearly
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div
-    class="flex items-center justify-center gap-4 mt-12 text-xs font-bold text-marine-blue"
-  >
-    <p :class="pricingType !== 'monthly' && 'text-cool-gray font-normal'">
-      Monthly
-    </p>
-
-    <button
-      @click="planStore.handleChangePlan"
-      class="w-10 h-5 bg-marine-blue p-1 rounded-full flex items-center"
-      :class="pricingType === 'monthly' ? 'justify-start' : 'justify-end'"
-    >
-      <div class="w-3 h-3 rounded-full bg-white"></div>
-    </button>
-
-    <p :class="pricingType !== 'yearly' && 'text-cool-gray font-normal'">
-      Yearly
-    </p>
-  </div>
-
-  <Footer class="mt-20" />
+  <Footer class="mt-12 md:mt-20" />
 </template>

@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <div
     @click="selectAddOns"
-    class="h-20 p-5 mb-4 flex items-center justify-between rounded-lg border hover:border-purplish-blue transition-all cursor-pointer select-none"
+    class="min-h-[5rem] py-2 px-4 md:px-5 flex items-center justify-between rounded-lg border hover:border-purplish-blue transition-all cursor-pointer select-none"
     :class="
       isSelected() ? 'border-purplish-blue bg-magnolia' : 'border-light-gray'
     "
@@ -31,11 +31,12 @@ defineProps<{
         />
       </div>
 
-      <div class="ml-5">
+      <div class="ml-4 md:ml-5 flex-1">
         <h1 class="font-bold text-marine-blue">{{ title }}</h1>
         <p class="text-sm text-cool-gray">{{ desc }}</p>
       </div>
     </div>
+
     <p class="text-sm text-purplish-blue font-semibold">+${{ price }}/mo</p>
   </div>
 </template>

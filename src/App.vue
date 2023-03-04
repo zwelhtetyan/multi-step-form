@@ -4,9 +4,9 @@ import Sidebar from './components/Sidebar.vue';
 </script>
 
 <template>
-  <div class="min-h-screen flex justify-center items-center">
+  <div class="min-h-screen md:flex justify-center items-center">
     <div
-      class="bg-white border border-rose-500 h-[550px] w-full max-w-4xl rounded-xl p-3 flex gap-3"
+      class="flex flex-col md:flex-row md:p-3 md:gap-3 bg-white min-h-screen md:min-h-0 md:h-[550px] w-full max-w-4xl md:rounded-xl"
     >
       <Sidebar />
       <Container />
