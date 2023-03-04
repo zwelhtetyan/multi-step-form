@@ -2,9 +2,17 @@
 import { storeToRefs } from 'pinia';
 import { useMenuStore } from '../store';
 import { PersonalInfo, SelectPlan, PickAddOns, FinishingUp } from './form';
+import { watch } from 'vue';
 
 const menuStore = useMenuStore();
 const { currentMenuIdx } = storeToRefs(menuStore);
+
+watch(
+  () => currentMenuIdx.value,
+  () => {
+    window.scrollTo(0, 0);
+  }
+);
 </script>
 
 <template>
