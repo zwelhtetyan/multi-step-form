@@ -5,6 +5,7 @@ import AddOnsCard from './AddOnsCard.vue';
 import AllAddOns from '../../constants/AddOns';
 import { useAddOnsStore, usePlanStore } from '../../store';
 import { storeToRefs } from 'pinia';
+import { PricingObj } from '../../types';
 
 const title = 'Pick Add-ons';
 const desc = 'Add-ons help enhance your gaming experience..';
@@ -12,11 +13,6 @@ const desc = 'Add-ons help enhance your gaming experience..';
 const addOnsStore = useAddOnsStore();
 const planStore = usePlanStore();
 const { pricingType } = storeToRefs(planStore);
-
-interface PricingObj {
-  monthly: number;
-  yearly: number;
-}
 
 const getPrice = (pricingType: string, pricingObj: PricingObj) => {
   return pricingType === 'monthly' ? pricingObj.monthly : pricingObj.yearly;

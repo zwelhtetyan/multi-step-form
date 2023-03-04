@@ -1,8 +1,4 @@
-interface ErrorState {
-  name: string;
-  email: string;
-  phoneNumber: string;
-}
+import { ErrorState } from '../types';
 
 const isValidEmail = (email: string) => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

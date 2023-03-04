@@ -1,12 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import allPlans from '../constants/selectPlans';
-import { PricingObjKey } from '../types';
-
-interface AddOns {
-  title: string;
-  price: number;
-}
+import { AddOns, PricingObjKey } from '../types';
 
 export const useMenuStore = defineStore('menu', () => {
   const menus = ref(['your info', 'select plan', 'add-ons', 'summary']);
