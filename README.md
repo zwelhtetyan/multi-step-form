@@ -1,6 +1,6 @@
 # Frontend Mentor - Multi-step form
 
-## [click here for solution url 🚀🚀🚀](https://www.frontendmentor.io/solutions/multi-step-form-5zRcDoHtBr)
+#### [click here for solution url 🚀🚀🚀](https://www.frontendmentor.io/solutions/multi-step-form-5zRcDoHtBr)
 
 <br />
 
